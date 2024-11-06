@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Anushka!</title>
+    <style>
+        /* Reset styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Basic body styling */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #FFE6E6;
+            font-family: 'Arial', sans-serif;
+            color: #4A4A4A;
+            overflow: hidden;
+        }
+
+        /* Animated Background */
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .background span {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #FFD1DC;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: move 10s linear infinite;
+        }
+        .background span:nth-child(odd) { background-color: #FFB6C1; }
+        .background span:nth-child(even) { background-color: #FF69B4; }
+
+        /* Random positioning for animated background */
+        @keyframes move {
+            0% { transform: translateY(-100vh); }
+            100% { transform: translateY(100vh); }
+        }
+
+        /* Card styling */
+        .card {
+            max-width: 550px;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Image styling */
+        .card img {
+            width: 100%;
+            max-width: 260px;
+            border-radius: 50%;
+            margin: 20px 0;
+            box-shadow: 0px 5px 15px rgba(255, 105, 180, 0.3);
+            animation: bounce 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Birthday message styling */
+        .card h1 {
+            font-size: 2.8em;
+            color: #FF4081;
+            margin-bottom: 15px;
+            animation: slideIn 1.5s ease-in-out;
+        }
+
+        /* Sparkles effect around message */
+        .sparkles {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .sparkle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #FFC0CB;
+            border-radius: 50%;
+            animation: sparkle 1.5s infinite ease-in-out;
+            opacity: 0;
+        }
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; transform: scale(1.5); }
+        }
+        .sparkle:nth-child(1) { top: 30%; left: 20%; }
+        .sparkle:nth-child(2) { top: 40%; left: 80%; }
+        .sparkle:nth-child(3) { top: 60%; left: 15%; }
+        .sparkle:nth-child(4) { top: 20%; left: 70%; }
+
+        /* Message text styling */
+        .card p {
+            font-size: 1.2em;
+            color: #555555;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            animation: fadeUp 1.8s ease-in-out;
+        }
+
+        /* Button styling */
+        .card .button {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 20px;
+            background-color: #FF4081;
+            color: #ffffff;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1em;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+            animation: popIn 2s ease-in-out;
+        }
+        .card .button:hover {
+            transform: scale(1.08);
+            background-color: #ff608d;
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-12px); }
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes fadeUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes popIn {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="background">
+        <!-- Create multiple spans for floating dots -->
+        <span style="left:10%; animation-delay: 0s;"></span>
+        <span style="left:20%; animation-delay: 2s;"></span>
+        <span style="left:30%; animation-delay: 4s;"></span>
+        <span style="left:40%; animation-delay: 6s;"></span>
+        <span style="left:50%; animation-delay: 8s;"></span>
+    </div>
+
+    <!-- Card Content -->
+    <div class="card">
+        <h1>Happy Birthday, Anushka!</h1>
+        <div class="sparkles">
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <img src="img/ans.jpg" alt="Anushka's Photo">
+        <p>Wishing you a day filled with love, laughter, and all your favorite things! May this year bring you endless happiness and success. 🎉🎂💖</p>
+        <a href="#" class="button">Celebrate Now!</a>
+    </div>
+
+    <!-- Background Music -->
+    <audio autoplay loop>
+        <source src="birthday_song.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
